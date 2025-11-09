@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+.pixelify-sans {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+}
+
+html {
+  overflow: hidden;
+}
+
+/* Pixelated Button Styles */
+.pixel-button {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.pixel-button:hover {
+  filter: brightness(1.1);
+}
+
+.pixel-button:active {
+  filter: brightness(0.9);
+}

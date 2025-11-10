@@ -80,9 +80,7 @@ const Game = ({ playerName, onGameOver }) => {
     
     backgroundMusicRef.current.addEventListener('ended', playRandomTrack);
     
-    socketRef.current = io(import.meta.env.VITE_SERVER_URL || 'http://localhost:3001', {
-      transports: ['websocket']
-    });
+    socketRef.current = io(import.meta.env.VITE_SERVER_URL || 'http://localhost:3001');
     
     socketRef.current.emit('join-game', playerName);
     

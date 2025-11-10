@@ -10,13 +10,11 @@ const io = new Server(server, {
     origin: [
       "http://localhost:5173",
       "https://localhost:5173",
-      "https://car-o-battle.vercel.app",
-      "https://*.vercel.app"
+      process.env.CLIENT_URL || "http://localhost:5173"
     ],
     methods: ["GET", "POST"],
     credentials: true
-  },
-  transports: ['websocket']
+  }
 });
 
 // Infinite world - no size limit

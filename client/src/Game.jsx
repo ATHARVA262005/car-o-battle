@@ -704,6 +704,70 @@ const Game = ({ playerName, onGameOver }) => {
       ctx.fillStyle = '#ffffff';
       ctx.fillText(controlsText, controlsX, controlsY);
       
+      // Power-ups Info Card (top right)
+      const infoCardWidth = 300;
+      const infoCardHeight = 140;
+      const infoCardX = canvas.width - infoCardWidth - 20;
+      const infoCardY = 20;
+      
+      // Info card background
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+      ctx.fillRect(infoCardX, infoCardY, infoCardWidth, infoCardHeight);
+      
+      // Info card border
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(infoCardX, infoCardY, infoCardWidth, infoCardHeight);
+      
+      // Info card title
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '18px "UnifrakturCook", cursive';
+      ctx.textAlign = 'center';
+      ctx.fillText('POWER-UPS', infoCardX + infoCardWidth/2, infoCardY + 25);
+      
+      // Power-up info list
+      const powerupInfo = [
+        { type: 'speed', name: 'Speed Boost', color: '#fbbf24', duration: '10s' },
+        { type: 'health', name: 'Health Pack', color: '#22c55e', duration: 'Instant' },
+        { type: 'damage', name: 'Damage Boost', color: '#ef4444', duration: '15s' },
+        { type: 'rapid_fire', name: 'Rapid Fire', color: '#f97316', duration: '12s' },
+        { type: 'shield', name: 'Shield', color: '#3b82f6', duration: '8s' },
+        { type: 'multi_shot', name: 'Multi-Shot', color: '#8b5cf6', duration: '10s' },
+        { type: 'explosive', name: 'Explosive', color: '#dc2626', duration: '8s' },
+        { type: 'invisibility', name: 'Invisibility', color: '#6b7280', duration: '6s' }
+      ];
+      
+      ctx.font = '12px "UnifrakturCook", cursive';
+      ctx.textAlign = 'left';
+      
+      powerupInfo.forEach((info, index) => {
+        const row = Math.floor(index / 2);
+        const col = index % 2;
+        const itemX = infoCardX + 10 + col * 140;
+        const itemY = infoCardY + 45 + row * 22;
+        
+        // Power-up icon
+        ctx.fillStyle = info.color;
+        ctx.fillRect(itemX, itemY - 10, 16, 16);
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(itemX, itemY - 10, 16, 16);
+        
+        // Power-up letter
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '10px "UnifrakturCook", cursive';
+        ctx.textAlign = 'center';
+        ctx.fillText(info.type.charAt(0).toUpperCase(), itemX + 8, itemY - 2);
+        
+        // Power-up name and duration
+        ctx.font = '11px "UnifrakturCook", cursive';
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText(info.name, itemX + 20, itemY - 4);
+        ctx.fillStyle = '#cccccc';
+        ctx.fillText(info.duration, itemX + 20, itemY + 8);
+      });
+      
       // Inventory slots (bottom right)
       const slotSize = 40;
       const slotSpacing = 8;

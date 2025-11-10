@@ -38,7 +38,7 @@ A real-time multiplayer top-down battle royale game built with React and Socket.
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
+git clone https://github.com/ATHARVA262005/car-o-battle.git
 cd boatowaepon
 ```
 
